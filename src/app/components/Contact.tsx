@@ -1,7 +1,7 @@
-"use client"; // Ensure this component is a client component
+"use client"; // Add this directive to indicate it's a client component
+
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -19,7 +19,10 @@ const Contact = () => {
       message,
     };
 
-    console.log('Template Params:', templateParams); // Log template params
+    // Log environment variables
+    console.log('Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+    console.log('Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+    console.log('User ID:', process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
 
     emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -36,16 +39,10 @@ const Contact = () => {
       setErrorMessage('');
     }, (error) => {
       console.error('Failed to send email:', error);
-      console.error('Error response:', error.response); // Log the error response
       setErrorMessage('Failed to send your message. Please try again later.');
       setSuccessMessage('');
     });
   };
-
-  console.log('Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
-console.log('Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
-console.log('User ID:', process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
-
 
   return (
     <div className="container mt-5">
