@@ -7,8 +7,8 @@ export default function Navbar() {
         <div className="container">
           <a className="navbar-logo" href="#">
             <Image src="/images/logo.png" alt="logo"
-                  width={100}
-                  height={500}
+                  width={80}
+                  height={40}
                   />
           </a>
           <button

@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${garamond.className}`}>
+      <body>
         <div className='container'>
         {children}
         </div>
