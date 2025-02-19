@@ -200,6 +200,14 @@ a:hover {
 
 /*CONTACT*/
 
+form{
+  max-width:500px;
+}
+
+form textarea{
+  resize: none;
+}
+
 .contact-section {
   padding: 4rem 0;
 }

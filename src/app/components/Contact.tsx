@@ -1,4 +1,4 @@
-"use client"; // Add this directive to indicate it's a client component
+"use client"; // Indicate it's a client component
 
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
@@ -18,11 +18,6 @@ const Contact = () => {
       email,
       message,
     };
-
-    // Log environment variables
-    console.log('Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
-    console.log('Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
-    console.log('User ID:', process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
 
     emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -45,10 +40,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Contact Us</h2>
-      <form onSubmit={sendEmail}>
-        <div className="mb-3">
+    <div className="section-wrapper">
+      <h2 className="text-center mb-4">Contact Me</h2>
+      <form onSubmit={sendEmail} className='w-100'>
+        <div className="form-group mb-3">
           <label htmlFor="name" className="form-label">Name</label>
           <input
             type="text"
@@ -57,9 +52,10 @@ const Contact = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            aria-label="Enter your name"
           />
         </div>
-        <div className="mb-3">
+        <div className="form-group mb-3">
           <label htmlFor="email" className="form-label">Email</label>
           <input
             type="email"
@@ -68,9 +64,10 @@ const Contact = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            aria-label="Enter your email"
           />
         </div>
-        <div className="mb-3">
+        <div className="form-group mb-3">
           <label htmlFor="message" className="form-label">Message</label>
           <textarea
             className="form-control"
@@ -78,11 +75,13 @@ const Contact = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
+            rows={4}
+            aria-label="Enter your message"
           />
         </div>
         {successMessage && <div className="alert alert-success">{successMessage}</div>}
         {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-        <button type="submit" className="btn btn-primary">Send</button>
+        <button type="submit" className="btn btn-primary w-100">Send Message</button>
       </form>
     </div>
   );
