@@ -1,48 +1,56 @@
 "use client"; // Indicate it's a client component
 
-import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const templateParams = {
-      name,
-      email,
+      to_name: "Icaro Lindo", 
+      from_name: name, // Sender's name
+      from_email: email, // Sender's email
       message,
     };
+    
 
-    emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-      templateParams,
-      process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
-    )
-    .then((response) => {
-      console.log('Email sent successfully:', response.status, response.text);
-      setSuccessMessage('Your message has been sent successfully!');
-      setName('');
-      setEmail('');
-      setMessage('');
-      setErrorMessage('');
-    }, (error) => {
-      console.error('Failed to send email:', error);
-      setErrorMessage('Failed to send your message. Please try again later.');
-      setSuccessMessage('');
-    });
+    console.log("Template Params:", templateParams); // Debugging
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully:", response.status, response.text);
+          setSuccessMessage("Your message has been sent successfully!");
+          setName("");
+          setEmail("");
+          setMessage("");
+          setErrorMessage("");
+        },
+        (error) => {
+          console.error("Failed to send email:", error);
+          setErrorMessage("Failed to send your message. Please try again later.");
+          setSuccessMessage("");
+        }
+      );
   };
 
   return (
     <div className="section-wrapper">
       <h2 className="text-center mb-4">Contact Me</h2>
-      <form onSubmit={sendEmail} className='w-100'>
+      <form onSubmit={sendEmail} className="w-100">
         <div className="form-group mb-3">
           <label htmlFor="name" className="form-label">Name</label>
           <input
