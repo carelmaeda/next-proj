@@ -44,6 +44,7 @@ export async function POST(request: Request) {
     // Send the email
     await transporter.sendMail(mailOptions);
     console.log('Email sent successfully!');
+    
     return NextResponse.json({ message: 'Message sent successfully!' });
   } catch (error) {
     console.error('Error in POST /api/contact:', error); // Log the error for debugging
