@@ -10,7 +10,7 @@ const garamond = EB_Garamond({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'ICARO Designer Portfolio',
-  description: 'UX Portfolio of Carel Maeda Ambrosio',
+  description: 'Icaro Portfolio',
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.className} ${garamond.className}`}>
       <body>
         <div className='container'>
         {children}
