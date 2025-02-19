@@ -1,127 +1,74 @@
-'use client'; // Mark this as a Client Component
+// app/components/Contact.tsx
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
-import { useState } from 'react';
-import Loading from './loading';
+const Contact: React.FC = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData); // Log form data
 
-    // Validate form data
-    if (!formData.name || !formData.email || !formData.message) {
-      setError('All fields are required.');
-      return;
-    }
+    const templateParams = {
+      name,
+      email,
+      message,
+    };
 
-    setIsLoading(true); // Show loading state
-    setError(''); // Clear any previous errors
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+    emailjs.send('service_qzqb6vd', 'template_fj56jry', templateParams, process.env.NEXT_PUBLIC_EMAILJS_USER_ID)
+      .then((response) => {
+        console.log('Email sent successfully:', response.status, response.text);
+        setSuccessMessage('Your message has been sent successfully!');
+        setName('');
+        setEmail('');
+        setMessage('');
+        setErrorMessage('');
+      }, (error) => {
+        console.error('Failed to send email:', error);
+        setErrorMessage('Failed to send your message. Please try again later.');
+        setSuccessMessage('');
       });
-
-      console.log('Response status:', response.status); // Log response status
-
-      if (response.ok) {
-        setSubmitted(true); // Show success message
-        setFormData({ name: '', email: '', message: '' }); // Clear the form
-      } else {
-        const data = await response.json();
-        setError(data.message || 'Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error submitting the form:', error);
-      setError('An error occurred. Please try again.');
-    } finally {
-      setIsLoading(false); // Hide loading state
-    }
   };
 
   return (
-    <section id="contact" className="section-wrapper">
-      <h2 className="text-center mb-4">Contact Me</h2>
-      {isLoading ? (
-        <Loading /> // Show loading component
-      ) : (
-        <form onSubmit={handleSubmit} className="contact-form">
-          {submitted && (
-            <div className="alert alert-success text-center">
-              Thank you! Your message has been sent.
-            </div>
-          )}
-          {error && <div className="alert alert-danger">{error}</div>}
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="form-control"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="form-control"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="message" className="form-label">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="form-control"
-              rows={5}
-              required
-            ></textarea>
-          </div>
-          <button type="submit" className="btn btn-primary" disabled={isLoading}>
-            {isLoading ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
-      )}
-    </section>
+    <div>
+      <h2>Contact Me</h2>
+      <form onSubmit={sendEmail}>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Send</button>
+      </form>
+      {successMessage && <p>{successMessage}</p>}
+      {errorMessage && <p>{errorMessage}</p>}
+    </div>
   );
-}
+};
+
+export default Contact;
