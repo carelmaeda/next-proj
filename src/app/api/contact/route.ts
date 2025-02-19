@@ -38,6 +38,14 @@ export async function POST(request: Request) {
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
 
+
+    //remove this later
+    if (process.env.NODE_ENV === 'development') {
+      console.log('EMAIL_USER:', process.env.EMAIL_USER);
+      console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
+    }
+    
+
     // Log email options
     console.log('Email options:', mailOptions);
 
