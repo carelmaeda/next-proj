@@ -42,6 +42,11 @@ const Contact = () => {
     });
   };
 
+  console.log('Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
+console.log('Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
+console.log('User ID:', process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
+
+
   return (
     <div className="container mt-5">
       <h2>Contact Us</h2>
