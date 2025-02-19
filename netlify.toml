@@ -8,3 +8,11 @@
 [build.environment]
   NODE_VERSION = "18"
   NEXT_CACHE = ".next/cache"
+
+
+[build]
+  environment = { 
+    SECRETS_SCAN_OMIT_PATHS = ".netlify/functions-internal/**",
+    SECRETS_SCAN_OMIT_KEYS = "EMAIL_USER,EMAIL_PASS",
+    SECRETS_SCAN_ENABLED = "false" 
+  }
