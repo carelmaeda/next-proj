@@ -3,12 +3,12 @@ import Work from './components/Work';
 import About from './components/About';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
-      <Hero />
       <section id="work" className="py-5">
         <Work />
       </section>
@@ -18,6 +18,10 @@ export default function Home() {
       <section id="contact" className="py-5">
         <Contact />
       </section>
+
+
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </main>
   );
 }

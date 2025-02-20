@@ -3,13 +3,14 @@ import { Inter,EB_Garamond } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script'; // Import the Script component
 import Footer from './components/Footer';
+import Hero from './components/Hero';
 
 
 const inter = Inter({ subsets: ["latin"] });
 const garamond = EB_Garamond({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'ICARO Designer Portfolio',
+  title: 'Icaro Maeda',
   description: 'Icaro Portfolio',
 };
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className} ${garamond.className}`}>
       <body>
+      <Hero />
         <div className='container'>
         {children}
         </div>

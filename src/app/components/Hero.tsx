@@ -3,10 +3,11 @@ export default function Hero() {
   return (
     <section className="hero-section row">
           <div className="">
-            <h1 className="display-5">Hi! My name is <span className='hero-text'>Icaro.</span> </h1>
-            <p className="lead my-4">
+            <h1 className="display-5">Oi! Eu sou o <span className='hero-text'>Icaro.</span> </h1>
+            <p className="lead">
             Social Media blablabla
             </p>
+            <button className="btn btn-lg btn-primary">Fale Comigo</button>
           </div>
     </section>
   );
