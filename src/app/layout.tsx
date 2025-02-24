@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Inter,EB_Garamond } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script'; // Import the Script component
-import Footer from './components/Footer';
-import Hero from './components/Hero';
+import Footer from './components/partials/Footer';
+import Hero from './components/partials/Hero';
 
 
 const inter = Inter({ subsets: ["latin"] });

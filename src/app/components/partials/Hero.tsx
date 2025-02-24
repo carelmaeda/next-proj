@@ -7,7 +7,7 @@ export default function Hero() {
             <p className="lead">
             Social Media blablabla
             </p>
-            <button className="btn btn-lg btn-primary">Fale Comigo</button>
+            <button className="btn btn-lg btn-primary text-uppercase">Marque uma consulta comigo</button>
           </div>
     </section>
   );

@@ -1,8 +1,8 @@
 import Work from './components/Work';
 import About from './components/About';
 import Contact from './components/Contact';
-import Navbar from './components/Navbar';
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import Navbar from './components/partials/Navbar';
+import FloatingWhatsApp from "./components/partials/FloatingWhatsApp";
 
 export default function Home() {
   return (
