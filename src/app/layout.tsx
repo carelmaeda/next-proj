@@ -3,7 +3,7 @@ import { Inter,EB_Garamond } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script'; // Import the Script component
 import Footer from './components/partials/Footer';
-import Hero from './components/partials/Hero';
+import Navbar from './components/partials/Navbar';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,10 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className} ${garamond.className}`}>
       <body>
-      <Hero />
-        <div className='container'>
+      <Navbar />
         {children}
-        </div>
         <Footer />
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

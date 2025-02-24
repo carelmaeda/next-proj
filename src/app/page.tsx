@@ -1,23 +1,27 @@
-import Work from './components/Work';
+import Pricing from './components/work/Pricing';
 import About from './components/About';
 import Contact from './components/Contact';
 import Navbar from './components/partials/Navbar';
+import Hero from './components/partials/Hero';
 import FloatingWhatsApp from "./components/partials/FloatingWhatsApp";
 
 export default function Home() {
   return (
     <main>
-      <Navbar />
-      <section id="work" className="py-5">
-        <Work />
+      <div className="container-fluid">
+        <Hero />
+      </div>
+      <div className="container">
+      <section id="work" className="py-4">
+        <Pricing />
       </section>
-      <section id="about" className="py-5">
+      <section id="about" className="py-4">
         <About />
       </section>
-      <section id="contact" className="py-5">
+      <section id="contact" className="py-4">
         <Contact />
       </section>
-
+      </div>
 
       {/* Floating WhatsApp Button */}
       <FloatingWhatsApp />
