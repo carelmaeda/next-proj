@@ -1,3 +1,6 @@
+import Image from "next/image";
+
+
 export default function FloatingWhatsApp() {
     return (
       <a
@@ -7,7 +10,7 @@ export default function FloatingWhatsApp() {
         className="position-fixed bottom-0 end-0 m-3"
         style={{ zIndex: 1000 }}
       >
-        <img
+        <Image
           src="https://cdn.dooca.store/163309/files/novo-whats.gif?v=1731956618"
           alt="WhatsApp"
           width={70} 

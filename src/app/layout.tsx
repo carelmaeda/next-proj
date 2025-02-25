@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Inter,EB_Garamond } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script'; // Import the Script component

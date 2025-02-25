@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa"; // Import the check-circle icon
 
 const Pricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState("pro");
+  const [selectedPlan] = useState("pro");
 
   const plans = [
     {
