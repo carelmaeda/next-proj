@@ -1,106 +1,102 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa"; // Import the check-circle icon
 
 const Pricing = () => {
-  const [activeTab, setActiveTab] = useState("Price2");
+  const [selectedPlan, setSelectedPlan] = useState("pro");
 
-  const tabs = [
-    { 
-      id: "Price1", 
-      label: "Price1", 
-      content: (
-        <div>
-          <h3>Title 1</h3>
-          <p>Description for Price1</p>
-          <div className="accordion" id="accordionPrice1">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Accordion Item #1
-                </button>
-              </h2>
-              <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionPrice1">
-                <div className="accordion-body">
-                  <strong>This is the first item's accordion body.</strong> Content for accordion item 1.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+  const plans = [
+    {
+      id: "tier1",
+      name: "Básico",
+      description:
+        "Para pequenas empresas que precisam estar ativas nas redes sociais",
+      price: "R$1.000",
+      features: [
+        "Gestão de 1 perfil",
+        "8 posts/mês",
+        "Legendas estratégicas e persuasivas",
+        "Planejamento de conteúdo",
+        "Relatório de desempenho",
+        "Postagem por conta do cliente",
+      ],
     },
-    { 
-      id: "Price2", 
-      label: "Price2", 
-      content: (
-        <div>
-          <h3>Title 2</h3>
-          <p>Description for Price2</p>
-          <div className="accordion" id="accordionPrice2">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Accordion Item #2
-                </button>
-              </h2>
-              <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionPrice2">
-                <div className="accordion-body">
-                  <strong>This is the second item's accordion body.</strong> Content for accordion item 2.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+    {
+      id: "tier2",
+      name: "Intermediário",
+      description: "Para marcas que desejam aumentar sua visibilidade",
+      price: "R$2.000",
+      features: [
+        "Gestão até 2 perfis",
+        "12 posts/mês",
+        "Legendas estratégicas e persuasivas",
+        "Monitoramento e resposta a comentários/mensagens",
+        "Planejamento de conteúdo",
+        "Relatório de desempenho",
+        "Criação de material gráfico ou digital",
+        "Programação de postagem e acesso às redes sociais.",
+      ],
     },
-    { 
-      id: "Price3", 
-      label: "Price3", 
-      content: (
-        <div>
-          <h3>Title 3</h3>
-          <p>Description for Price3</p>
-          <div className="accordion" id="accordionPrice3">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Accordion Item #3
-                </button>
-              </h2>
-              <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionPrice3">
-                <div className="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> Content for accordion item 3.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+    {
+      id: "tier3",
+      name: "Premium",
+      description:
+        "Para negócios que querem uma estratégia completa para atrair e converter clientes",
+      price: "R$3.000",
+      features: [
+        "Gestão até 2 perfis",
+        "20 posts/mês",
+        "Legendas estratégicas e persuasivas",
+        "Monitoramento e resposta a comentários/mensagens",
+        "Planejamento de conteúdo",
+        "Relatório de desempenho quinzenal",
+        "Gestão de campanhas e patrocinados",
+        "Acompanhamento de performance e leads gerados",
+        "Webdesign (wix, nuvemshop, hostinger)",
+      ],
     },
   ];
 
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="section-wrapper">
-      <ul className="nav nav-pills">
-        {tabs.map((tab) => (
-          <li className="nav-item" key={tab.id}>
-            <button
-              className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-              onClick={() => setActiveTab(tab.id)}
+    <div className="container py-5">
+      <h2 className="text-center mb-4">Planos</h2>
+      <div className="row">
+        {plans.map((plan) => (
+          <div key={plan.id} className="col-md-4 mb-3 d-flex">
+            <div
+              className={`card p-4 shadow-lg d-flex flex-column h-100 ${
+                selectedPlan === plan.id ? "border-primary" : ""
+              }`}
             >
-              {tab.label}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div className="w-100">
-        {tabs.map((tab) => (
-          activeTab === tab.id && (
-            <div key={tab.id} className="tab-pane fade show active">
-              {tab.content}
+              <h4 className="card-title">{plan.name}</h4>
+              <small>{plan.description}</small>
+
+              <div className="my-4">
+                <span className="display-6">{plan.price}</span>
+                <small>/mês</small>
+              </div>
+
+              <div className="flex-grow-1">
+                <ul className="list-unstyled d-grid gap-2">
+                  {plan.features.map((feature, index) => (
+                    <li key={index} className="d-flex align-items-center">
+                      <FaCheckCircle className="text-primary me-2 check-icon" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <button className="btn btn-primary mt-3" onClick={scrollToContact}>
+                Fala Comigo
+              </button>
             </div>
-          )
+          </div>
         ))}
       </div>
     </div>

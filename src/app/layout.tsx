@@ -9,9 +9,31 @@ import Navbar from './components/partials/Navbar';
 const inter = Inter({ subsets: ["latin"] });
 const garamond = EB_Garamond({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: 'Icaro Maeda',
-  description: 'Icaro Portfolio',
+export const metadata = {
+  title: "Icaro Maeda | Gestão de Redes Sociais",
+  description: "Aumente sua presença digital com estratégias personalizadas de social media e marketing digital.",
+  keywords: "gestão de redes sociais, marketing digital, social media, tráfego pago",
+  openGraph: {
+    title: "Icaro Maeda | Gestão de Redes Sociais",
+    description: "Aumente sua presença digital com estratégias personalizadas de social media.",
+    url: "https://icaromaeda.netlify.app/",
+    siteName: "Icaro Maeda",
+    images: [
+      {
+        url: "https://icaromaeda.netlify.app/seo-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Imagem de destaque",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gestão de Redes Sociais | Seu Nome",
+    description: "Aumente sua presença digital com estratégias personalizadas de social media.",
+    images: ["https://seudominio.com/seo-image.webp"],
+  },
 };
 
 export default function RootLayout({
