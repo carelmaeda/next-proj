@@ -1,6 +1,5 @@
 import About from './components/About';
 import Contact from './components/Contact';
-import Navbar from './components/partials/Navbar';
 import Hero from './components/partials/Hero';
 import FloatingWhatsApp from "./components/partials/FloatingWhatsApp";
 import Work from './components/partials/Work';

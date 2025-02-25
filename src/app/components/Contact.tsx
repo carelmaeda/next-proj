@@ -89,7 +89,7 @@ const Contact = () => {
         </div>
         {successMessage && <div className="alert alert-success">{successMessage}</div>}
         {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-        <button type="submit" className="btn btn-primary w-100">Send Message</button>
+        <button type="submit" className="btn btn-primary w-100">Enviar Mensagem</button>
       </form>
     </div>
   );
