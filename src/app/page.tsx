@@ -1,9 +1,9 @@
-import Pricing from './components/work/Pricing';
 import About from './components/About';
 import Contact from './components/Contact';
 import Navbar from './components/partials/Navbar';
 import Hero from './components/partials/Hero';
 import FloatingWhatsApp from "./components/partials/FloatingWhatsApp";
+import Work from './components/partials/Work';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       </div>
       <div className="container">
       <section id="work" className="py-4">
-        <Pricing />
+        <Work />
       </section>
       <section id="about" className="py-4">
         <About />

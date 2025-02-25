@@ -1,15 +1,42 @@
+"use client";
+
+
 import Image from "next/image";
+
+
+const scrollToContact = () => {
+  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+};
 
 export default function About() {
   return (
     <section id="about" className="section-wrapper">
-        <h2 className="text-center mb-4">About Me</h2>
+        <h2 className="text-center mb-4">Sobre Mim</h2>
         <div className="about-wrapper d-md-flex">
            <Image src="/images/profile.jpeg" alt="profile"  width={200}  height={200}   />
-        <p className="col-6">
-        Sou Designer Gráfico e Social Media, com experiência em criação de conteúdo, planejamento de mídias sociais e edição de materiais visuais para diferentes plataformas.<br/> Ao longo da minha carreira, colaborei com empresas de diversos setores, desenvolvendo campanhas criativas que conectam marcas ao público.
-        Minha formação em Design de Moda pelo Istituto Europeo di Design e cursos complementares em Marketing Digital e UX Design me permitem unir criatividade e estratégia para entregar resultados alinhados às necessidades dos clientes.
-        Estou sempre em busca de soluções inovadoras para destacar negócios no mercado e fortalecer a comunicação com seus públicos. Será um prazer contribuir com seu projeto!</p>
+        <div className="about-text">
+        <p lang="pt">
+            Sou <strong>Designer Gráfico</strong> e <strong>Social Media</strong>, especializado na criação de conteúdo, 
+            planejamento estratégico e edição de materiais visuais para diferentes plataformas. Com experiência em diversos setores, 
+            desenvolvo campanhas criativas que fortalecem a conexão entre marcas e público.
+        </p>
+        <p>
+            Minha formação em <strong>Design</strong> pelo Istituto Europeo di Design, aliada a especializações em 
+            <strong> Marketing Digital</strong> e <strong>UX Design</strong>, me permite unir criatividade e estratégia para entregar 
+            soluções eficazes e alinhadas às necessidades de cada cliente. Estou sempre em busca de inovação para destacar negócios no 
+            mercado e aprimorar sua comunicação.
+        </p>
+        <p>
+            Vamos transformar sua ideia em algo impactante?
+        </p>
+        <button
+                className={`btn btn-primary mt-3`}
+                onClick={scrollToContact}
+              >
+                Fala Comigo
+       </button>        
+       </div>
+
         </div>
 
     </section>
