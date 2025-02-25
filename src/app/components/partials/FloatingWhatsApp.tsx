@@ -11,7 +11,7 @@ export default function FloatingWhatsApp() {
         style={{ zIndex: 1000 }}
       >
         <Image
-          src="https://cdn.dooca.store/163309/files/novo-whats.gif?v=1731956618"
+          src="/images/novo-whats.gif"
           alt="WhatsApp"
           width={70} 
           height={70}
