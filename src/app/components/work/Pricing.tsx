@@ -63,7 +63,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="container py-5">
+    <div>
       <h2 className="text-center mb-4">Planos</h2>
       <div className="row">
         {plans.map((plan) => (
@@ -84,8 +84,8 @@ const Pricing = () => {
               <div className="flex-grow-1">
                 <ul className="list-unstyled d-grid gap-2">
                   {plan.features.map((feature, index) => (
-                    <li key={index} className="d-flex align-items-center">
-                      <FaCheckCircle className="me-2 check-icon" />
+                    <li key={index} className="d-flex align-items-center gap-2">
+                      <FaCheckCircle className="check-icon" />
                       {feature}
                     </li>
                   ))}

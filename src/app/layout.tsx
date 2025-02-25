@@ -41,9 +41,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.className} ${garamond.className}`}>
+    <html lang="pt" className={`${inter.className} ${garamond.className}`}>
       <body>
-      <Navbar />
+        <Navbar />
         {children}
         <Footer />
         <Script

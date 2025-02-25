@@ -1,9 +1,3 @@
-"use client";
-
-
-const scrollToContact = () => {
-  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-};
 
 export default function Hero() {
   return (
@@ -13,12 +7,7 @@ export default function Hero() {
             <p className="lead">
             Social Media blablabla
             </p>
-            <button
-                className={`btn btn-primary mt-3`}
-                onClick={scrollToContact}
-              >
-                Fala Comigo
-              </button>     
+            <button className="btn btn-lg btn-primary">Marque Sua Consulta</button>
             </div>
     </section>
   );

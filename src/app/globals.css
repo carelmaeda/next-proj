@@ -15,7 +15,6 @@
   --font-sans-serif: 'Inter', sans-serif;
 }
 
-/* Apply fonts */
 body {
   padding-top:4rem;
   font-family: var(--font-sans-serif);
@@ -25,11 +24,17 @@ body {
   line-height: 1.6;
 }
 
+
+/*Typography*/
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   color: var(--color-text);
 }
 
+.display-5, .display-6{
+  letter-spacing: -1px;
+}
 
 
 a {
