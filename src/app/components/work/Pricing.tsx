@@ -28,7 +28,7 @@ const Pricing = () => {
       description: "Para marcas que desejam aumentar sua visibilidade",
       price: "R$2.000",
       features: [
-        "Gestão até 2 perfis",
+        "Gestão de até 2 perfis",
         "12 posts/mês",
         "Legendas estratégicas e persuasivas",
         "Monitoramento e resposta a comentários/mensagens",
@@ -45,7 +45,7 @@ const Pricing = () => {
         "Para negócios que querem uma estratégia completa para atrair e converter clientes",
       price: "R$3.000",
       features: [
-        "Gestão até 2 perfis",
+        "Gestão de até 2 perfis",
         "20 posts/mês",
         "Legendas estratégicas e persuasivas",
         "Monitoramento e resposta a comentários/mensagens",
@@ -67,7 +67,7 @@ const Pricing = () => {
       <h2 className="text-center mb-4">Planos</h2>
       <div className="row">
         {plans.map((plan) => (
-          <div key={plan.id} className="col-md-4 mb-3 d-flex">
+          <div key={plan.id} className="col-lg-4 mb-3 d-flex">
             <div
               className={`card p-4 shadow-lg d-flex flex-column h-100 ${
                 selectedPlan === plan.id ? "border-primary" : ""
@@ -85,7 +85,7 @@ const Pricing = () => {
                 <ul className="list-unstyled d-grid gap-2">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="d-flex align-items-center">
-                      <FaCheckCircle className="text-primary me-2 check-icon" />
+                      <FaCheckCircle className="me-2 check-icon" />
                       {feature}
                     </li>
                   ))}
